@@ -28,22 +28,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.main);
 		setupfields();
 		setSupportActionBar(tb1);
+		Firebase.setAndroidContext(this);
 		
-		
-		
-		try{
-			
-			Firebase.setAndroidContext(this);
-			
-  		}
-  		catch(Exception e)
-		{
-			String msg="App Unavaiable";
-			showError(msg);
-
-		}
-		
-		}
+	}
+	
 	
 	public void loginUser(View v)
 	{
@@ -92,6 +80,20 @@ public class MainActivity extends AppCompatActivity
 		spinner1 = (ProgressBar) findViewById(R.id.pbSpin);
 		tb1 = (Toolbar) findViewById(R.id.my_toolbar);
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		// Inflate actionmenu.xml 
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.actionmenu, menu);
+		return true;
+	}
+	
+
+	
+	
+	
 	
 
 	
