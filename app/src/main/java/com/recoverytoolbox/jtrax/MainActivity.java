@@ -10,7 +10,7 @@ import android.support.v7.app.*;
 import android.widget.*;
 import android.support.v7.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends ActionBarActivity
 {
     private Firebase myFirebaseRef;
 	private EditText uname;
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity
 	private TextView errBox;
 	private String errMsg;
 	private ProgressBar spinner1;
-	private Toolbar tb1;
+	//private Toolbar tb1;
 	
 	
 	@Override
@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		setupfields();
-		setSupportActionBar(tb1);
+		
+		//setSupportActionBar(tb1);
 		Firebase.setAndroidContext(this);
 		
 	}
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
 	
 	public void loginUser(View v)
 	{
-		
+		setupfields();
 		myFirebaseRef= new Firebase("https://burning-torch-1239.firebaseIO.com");
 		spinner1.setVisibility(spinner1.VISIBLE);
 		
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
 		uname = (EditText) findViewById(R.id.username);
 		pwd = (EditText) findViewById(R.id.password);
 		spinner1 = (ProgressBar) findViewById(R.id.pbSpin);
-		tb1 = (Toolbar) findViewById(R.id.my_toolbar);
+		//tb1 = (Toolbar) findViewById(R.id.my_toolbar);
 	}
 	
 	@Override
@@ -90,12 +90,13 @@ public class MainActivity extends AppCompatActivity
 		return true;
 	}
 	
-
+	public void registerUser(View v)
+	{
+		Intent i = new Intent(this,RegistrationActivity.class);
+		startActivity(i);
+		
+	}
 	
-	
-	
-	
-
 	
 }
 
