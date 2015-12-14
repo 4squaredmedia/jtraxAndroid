@@ -10,7 +10,8 @@
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="wrap_content"
-		android:text="Register"/>
+		android:text="Register"
+		style="@style/AppTheme"/>
 
 	<EditText
 		android:layout_height="wrap_content"
@@ -29,7 +30,8 @@
 		android:ems="10"
 		android:layout_margin="10dp"
 		android:id="@+id/rPassword1"
-		android:hint="Choose a password"/>
+		android:hint="Choose a password"
+		style="@style/AppTheme"/>
 
 	<EditText
 		android:layout_height="wrap_content"
@@ -38,14 +40,16 @@
 		android:ems="10"
 		android:layout_margin="10dp"
 		android:id="@+id/rPassword2"
-		android:hint="Enter password again"/>
+		android:hint="Enter password again"
+		style="@style/AppTheme"/>
 
 	<Button
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 		android:text="Create Account"
 		android:id="@+id/rButtonCreateAccount"
-		android:onClick="createUser"/>
+		android:onClick="createUser"
+		style="@style/AppTheme"/>
 
 	<ProgressBar
 		style="?android:attr/progressBarStyleLarge"

@@ -55,10 +55,13 @@ public class RegistrationActivity extends ActionBarActivity
 		EditText pwd1 = (EditText) findViewById(R.id.rPassword1);
 		EditText pwd2 = (EditText) findViewById(R.id.rPassword2);
 		String pwd="";
+		String txtPwd1 = pwd1.getText().toString();
+		String txtPwd2= pwd2.getText().toString();
 		
-		if(pwd1.getText().toString() == pwd2.getText().toString())
+		
+		if(txtPwd1.compareTo(txtPwd2)==0)
 		{
-			pwd = pwd1.getText().toString();
+			pwd = txtPwd1;
 			mProgessSpinner.setVisibility(mProgessSpinner.VISIBLE);
 			myFirebaseRef= new Firebase("https://burning-torch-1239.firebaseIO.com");
 			myFirebaseRef.createUser(email.getText().toString(), pwd, new ValueResultHandler());

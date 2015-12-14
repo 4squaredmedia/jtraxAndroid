@@ -1,58 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical"
-	android:gravity="center_horizontal">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-	<LinearLayout
-		style="?android:attr/buttonBarStyle"
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="horizontal"
-		android:gravity="center_horizontal"
-		android:background="#8B211A">
+    <android.support.design.widget.TabLayout
+        android:id="@+id/sliding_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="scrollable" />
 
-		<Button
-			style="?android:attr/buttonBarButtonStyle"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:text="Bar Button"
-			android:textColor="#E4D5D4"/>
-
-		<Button
-			style="?android:attr/buttonBarButtonStyle"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:text="Bar Button"
-			android:textColor="#E4D5D4"/>
-
-		<Button
-			style="?android:attr/buttonBarButtonStyle"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-			android:text="Bar Button"
-			android:textColor="#E4D5D4"/>
-
-	</LinearLayout>
-
-	<LinearLayout
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:orientation="vertical"
-		android:paddingTop="10dp"
-		android:gravity="center_horizontal"
-		android:paddingBottom="10dp">
-
-		<FrameLayout
-			android:layout_height="200dp"
-			android:layout_width="200dp"
-			android:background="#FFFFFF"
-			android:elevation="10dp"
-			android:textAlignment="center"/>
-
-	</LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:background="@android:color/white" />
 
 </LinearLayout>
-

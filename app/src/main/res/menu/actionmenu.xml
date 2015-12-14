@@ -1,10 +1,19 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
     
+	
+	<item
+        android:id="@+id/action_new"
+        android:title="New Journey"
+		android:icon="@drawable/ic_action_new"
+		app:showAsAction="ifRoom"
+	/>
+
     <item
         android:id="@+id/action_logout"
         android:title="@string/log_out"
-		android:icon="@drawable/ic_account_box_black_18dp"
-		android:showAsAction="ifRoom"
+		android:icon="@drawable/ic_action_person"
+		app:showAsAction="ifRoom"
 		/>
     
 </menu>

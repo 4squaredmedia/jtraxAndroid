@@ -9,6 +9,7 @@ import com.firebase.client.core.*;
 import android.support.v7.app.*;
 import android.widget.*;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AlertDialog;
 
 public class MainActivity extends ActionBarActivity
 {
@@ -29,6 +30,7 @@ public class MainActivity extends ActionBarActivity
 		
 		//setSupportActionBar(tb1);
 		Firebase.setAndroidContext(this);
+		
 		
 	}
 	
@@ -66,10 +68,15 @@ public class MainActivity extends ActionBarActivity
 		startActivity(i);
 	}
 	
+	
 	private void showError(String msg){
 		
-		errBox.setVisibility(0);
-		errBox.setText(msg);
+		new AlertDialog.Builder(this)
+			.setTitle("Error")
+			.setMessage(msg)
+			.setPositiveButton(android.R.string.ok, null)
+			.setIcon(android.R.drawable.ic_dialog_alert)
+			.show();
 	}
 	
 	private void setupfields()
