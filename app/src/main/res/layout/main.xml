@@ -7,17 +7,7 @@
 	android:gravity="top|center"
 	android:orientation="vertical">
 
-	<!--<android.support.v7.widget.Toolbar
-		android:id="@+id/my_toolbar"
-		android:layout_width="match_parent"
-		android:layout_height="?attr/actionBarSize"
-		android:background="?attr/colorPrimary"
-		android:elevation="4dp"
-		android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-		app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>-->
-
-	
-		<TextView
+	<TextView
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="match_parent"
@@ -31,43 +21,44 @@
 		android:layout_marginBottom="10dp"
 		android:layout_margin="10dp"
 		android:visibility="invisible"/>
-	
+
 	<android.support.design.widget.TextInputLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		>
-	<EditText
-		android:layout_height="wrap_content"
-		android:layout_width="match_parent"
-		android:hint="Username"
-		android:gravity="left"
-		android:id="@+id/username"
-		android:minEms="10"
-		android:inputType="textEmailAddress"
-		android:layout_margin="10dp"
-		/>
+		android:layout_height="wrap_content">
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:hint="Username"
+			android:gravity="left"
+			android:id="@+id/username"
+			android:minEms="10"
+			android:inputType="textEmailAddress"
+			android:layout_margin="10dp"/>
+
 	</android.support.design.widget.TextInputLayout>
-	
+
 	<android.support.design.widget.TextInputLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		>
-	<EditText
-		android:layout_height="wrap_content"
-		android:inputType="textPassword"
-		android:layout_width="match_parent"
-		android:hint="Password"
-		android:gravity="left"
-		android:id="@+id/password"
-		android:minEms="10"
-		android:layout_margin="10dp"/>
+		android:layout_height="wrap_content">
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="textPassword"
+			android:layout_width="match_parent"
+			android:hint="Password"
+			android:gravity="left"
+			android:id="@+id/password"
+			android:minEms="10"
+			android:layout_margin="10dp"/>
+
 	</android.support.design.widget.TextInputLayout>
 
 	<LinearLayout
 		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:orientation="horizontal"
-		android:gravity="start">
+		android:gravity="center_horizontal">
 
 		<Button
 			android:layout_height="wrap_content"
@@ -76,7 +67,30 @@
 			android:layout_gravity="left"
 			android:elevation="28dp"
 			android:onClick="loginUser"
-			/>
+			style="@style/AppTheme"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Register"
+			android:id="@+id/btnRegister"
+			android:onClick="registerUser"
+			style="@style/AppTheme"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal">
+
+		<Button
+			style="?android:attr/buttonStyleSmall"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="forgot password?"
+			android:id="@+id/mForgotPassword"
+			android:onClick="sendPasswordReset"/>
 
 	</LinearLayout>
 
@@ -86,13 +100,6 @@
 		android:layout_width="wrap_content"
 		android:id="@+id/pbSpin"
 		android:visibility="gone"/>
-
-	<Button
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:text="Register"
-		android:id="@+id/btnRegister"
-		android:onClick="registerUser"/>
 
 </LinearLayout>
 

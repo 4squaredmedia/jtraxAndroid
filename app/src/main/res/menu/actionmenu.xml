@@ -12,7 +12,6 @@
     <item
         android:id="@+id/action_logout"
         android:title="@string/log_out"
-		android:icon="@drawable/ic_action_person"
 		app:showAsAction="ifRoom"
 		/>
     

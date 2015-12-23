@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-	compile 'com.android.support:appcompat-v7:+'
+	compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.firebase:firebase-client-android:2.4.1+'
 	compile 'com.android.support:design:22.2.0'
 	compile fileTree(dir: 'libs', include: ['*.jar'])

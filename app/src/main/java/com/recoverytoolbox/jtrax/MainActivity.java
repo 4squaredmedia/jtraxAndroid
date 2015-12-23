@@ -19,7 +19,7 @@ public class MainActivity extends ActionBarActivity
 	private TextView errBox;
 	private String errMsg;
 	private ProgressBar spinner1;
-	//private Toolbar tb1;
+	private AuthData mAuthData;
 	
 	
 	@Override
@@ -28,17 +28,24 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 		
-		//setSupportActionBar(tb1);
 		Firebase.setAndroidContext(this);
+		//set firebase ref
+		myFirebaseRef= new Firebase(getResources().getString(R.string.firebase_url));
 		
+		//get references to ui elements
+		setupfields();
 		
+		if(myFirebaseRef.getAuth() != null)
+		{
+		    userRedirect(myFirebaseRef.getAuth());
+		}
 	}
 	
 	
+	//method used when clicking the login button
 	public void loginUser(View v)
 	{
-		setupfields();
-		myFirebaseRef= new Firebase("https://burning-torch-1239.firebaseIO.com");
+		
 		spinner1.setVisibility(spinner1.VISIBLE);
 		
 		/*authenticate with firebase*/
@@ -47,7 +54,9 @@ public class MainActivity extends ActionBarActivity
 			@Override
 				public void onAuthenticated(AuthData authData) {
 					//System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
-						userRedirect();
+					mAuthData = authData;
+					pwd.setText("");
+					userRedirect(mAuthData);
 					}
 					
 				@Override
@@ -62,10 +71,25 @@ public class MainActivity extends ActionBarActivity
 		
 	}//end loginuser
 	
-	private void userRedirect()
+	
+	/*method to log off users*/
+	public void logoff()
 	{
+		if(mAuthData != null)
+		{
+			myFirebaseRef.unauth();
+		}
+	}
+	
+	
+	/*method to redirect users to user home*/
+	private void userRedirect(AuthData a1)
+	{
+		String uid = a1.getUid();
 		Intent i = new Intent(this,UserHomeActivity.class);
+		i.putExtra("com.recoverytoolbox.jtrax.uid",uid);
 		startActivity(i);
+		finish();
 	}
 	
 	
@@ -97,10 +121,50 @@ public class MainActivity extends ActionBarActivity
 		return true;
 	}
 	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logoff();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+	
 	public void registerUser(View v)
 	{
 		Intent i = new Intent(this,RegistrationActivity.class);
 		startActivity(i);
+		
+	}
+	
+	/*password reset method call*/
+	public void sendPasswordReset(View v)
+	{
+		if(uname.getText()==null || uname.getText().length()==0)
+		{
+			uname.setError("enter your email address");
+		}else{
+		
+		myFirebaseRef.resetPassword(uname.getText().toString()
+		,new Firebase.ResultHandler(){
+			@Override
+			public void onSuccess()
+			{
+				String msg = "Email sent with temporary password";
+				showError(msg);
+			}
+			
+			@Override
+			public void onError(FirebaseError e1)
+			{
+				String msg = e1.getMessage();
+				showError(msg);
+			}
+				
+		});
+		
+		}
 		
 	}
 	
