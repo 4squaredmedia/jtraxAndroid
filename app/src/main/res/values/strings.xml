@@ -3,4 +3,8 @@
     <string name="app_name">jtraxLocal</string>
 	<string name="log_out">Log Out</string>
 	<string name="firebase_url">https://burning-torch-1239.firebaseIO.com</string>
+	<string name="journey_plan">Journey Plan</string>
+	<string name="new_task">New Task</string>
+	<string name="checkin">Checkin</string>
+	<string name="menu_settings">Settings</string>
 </resources>

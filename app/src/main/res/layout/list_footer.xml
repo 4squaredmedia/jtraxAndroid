@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+	
+	<EditText
+		android:id="@+id/footerEditText"
+		android:layout_width="fill_parent"
+		android:layout_height="12dp"
+		android:hint="Task Name"
+		/>
+	<Button
+		android:id="@+id/list_footerButton"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:text="Add"
+		/>
+    
+</LinearLayout>

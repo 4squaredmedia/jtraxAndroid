@@ -16,7 +16,7 @@ import android.app.AlertDialog;
 import android.preference.*;
 
 
-public class RegistrationActivity extends ActionBarActivity
+public class RegistrationActivity extends AppCompatActivity
 {
 	
 	private Firebase myFirebaseRef;
@@ -85,7 +85,7 @@ public class RegistrationActivity extends ActionBarActivity
 	
 	private void redirectUser()
 	{
-		Intent i = new Intent(this, MainActivity.class);
+		Intent i = new Intent(this, LoginActivity.class);
 		startActivity(i);
 		
 	}

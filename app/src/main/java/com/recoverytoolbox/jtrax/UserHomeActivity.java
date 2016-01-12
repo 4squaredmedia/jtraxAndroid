@@ -47,8 +47,9 @@ public class UserHomeActivity extends AppCompatActivity
 	public void logoff()
 	{
 		FBref.unauth();
-		Intent i = new Intent(this,MainActivity.class);
+		Intent i = new Intent(this,LoginActivity.class);
 		startActivity(i);
 		finish();
-	}
+		
+		}
 }
