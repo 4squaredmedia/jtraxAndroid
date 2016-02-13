@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.Paint;
 
-import com.firebase.ui.FirebaseRecyclerViewAdapter;
+import com.firebase.ui.FirebaseRecyclerAdapter;
 import com.recoverytoolbox.jtrax.Model.JourneyChallenge;
 
 //import com.bumptech.glide.Glide;
@@ -27,8 +27,6 @@ import java.util.Random;
 import android.widget.*;
 import android.text.style.*;
 import com.firebase.client.Firebase;
-import com.firebase.ui.*;
-import com.firebase.client.*;
 
 
 
@@ -69,34 +67,25 @@ public class JourneyPlanFragment extends Fragment
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 		rv = (RecyclerView) view.findViewById(R.id.rv);
-		//setupRecyclerView(rv);
-		
-		rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 	
+		rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+	    FirebaseRecyclerAdapter<JourneyChallenge,JourneyChallengeViewHolder> mAdapter;
 		Firebase ref = new Firebase(getResources().getString(R.string.firebase_url));
 
-		mAdapter = new FirebaseRecyclerViewAdapter<JourneyChallenge,JourneyChallengeViewHolder>(){
+		mAdapter= new FirebaseRecyclerAdapter<JourneyChallenge,JourneyChallengeViewHolder>
+		(JourneyChallenge.class, R.layout.list_item,JourneyChallengeViewHolder.class,ref){
+			public void populateViewHolder(JourneyChallengeViewHolder vh, JourneyChallenge challenge, int pos)
+			{
+				vh.mTitle.setText(challenge.getChallengeTitle());
+				vh.mContent.setText(challenge.getChallengeText());
+			}
 			
 		};
 
-		//TODO: add adapter for recycler view
-		recyclerView.setAdapter(mAdapter);
+		rv.setAdapter(mAdapter);
 	}
-
-    private void setupRecyclerView(RecyclerView recyclerView)
-	{
-		
-    }
 	
-	public class myFBRVAdapter<JourneyChallenge,JourneyChallengeViewHolder> extends FirebaseRecyclerViewAdapter
-	{
-		
-		public void populateViewHolder(JourneyChallengeViewHolder jcViewHolder, JourneyChallenge mJChallenge)
-		{
-			jcViewHolder.mTitle.setText(mJChallenge.getChallengeTitle());
-			jcViewHolder.mContent.setText(mJChallenge.getChallengeText());
-		}
-	}
+	
 	
 	
 }
